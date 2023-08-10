@@ -78,8 +78,45 @@ const XO = s => {
   return x === o ? true : false
 }
 
-console.log(XO('xo'));
-console.log(XO("xxOo"));
-console.log(XO("xxxm"));
-console.log(XO("Oo"));
-console.log(XO("ooom"))
+// console.log(XO('xo'));
+// console.log(XO("xxOo"));
+// console.log(XO("xxxm"));
+// console.log(XO("Oo"));
+// console.log(XO("ooom"))
+
+
+// -------------------------------//
+// create a custom string method to capitalize the first letter of each word 
+
+String.prototype.toJadenCAse = function () {
+  let str = this.valueOf().split(' ').map(word => {
+    return word[0].toUpperCase() + word.slice(1)
+  })
+  return str.join(' ')
+}
+
+// var str = "How can mirrors be real if our eyes aren't real";
+// console.log(str.toJadenCAse())
+
+
+
+// -------------------------------//
+// write a function maskify, which changes all but the last four characters into '#'.
+
+function maskify(cc) {
+  if (cc.length < 4) {
+    return cc
+  } else {
+    let split = cc.split('')
+    let arr = []
+    for (let i = 0; i < split.length - 4; i++) {
+      arr.push('#')
+    }
+    return arr.join('') + cc.slice(cc.length-4)
+  }
+}
+
+
+// console.log(maskify('4556364607935616'))
+// console.log(maskify('1'))
+// console.log(maskify('11111'))
