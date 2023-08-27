@@ -219,5 +219,62 @@ function nbYear(p0, percent, aug, p) {
   return years
 }
 
-console.log(nbYear(1500, 5, 100, 5000)) //15
-console.log(nbYear(1500000, 2.5, 10000, 2000000)) //10
+// console.log(nbYear(1500, 5, 100, 5000)) //15
+// console.log(nbYear(1500000, 2.5, 10000, 2000000)) //10
+
+
+// -------------------------------//
+// Given a word, return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+
+const getMiddle = (s) => {
+  if (s.length % 2 === 1) {
+    return s[Math.floor(s.length / 2)]
+  } else {
+    let index = s.length / 2
+    return `${s[index - 1]}${s[index]}`
+  }
+}
+
+// console.log(getMiddle("test"))
+// console.log(getMiddle("testing"))
+
+
+
+// -------------------------------//
+// create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+function filter_list(l) {
+  return l.filter(i => i !== String(i))
+}
+
+// console.log(filter_list([1, 2, 'a', 'b']))
+// console.log(filter_list([1, 'a', 'b', 0, 15]))
+// console.log(filter_list([1,2,'aasf','1','123',123]))
+
+// -------------------------------//
+
+String.prototype.toJadenCase = function (s) {
+  let str = this.valueOf().split(' ').map(word => {
+    return (word[0].toUpperCase() + word.slice(1))
+  }).join(' ')
+  return str
+};
+
+// let str = "How can mirrors be real if our eyes aren't real";
+// str.toJadenCase()
+
+// -------------------------------//
+// Simple, given a string of words, return the length of the shortest word(s)
+
+function findShort(s) {
+  let words = s.split(' ')
+  let shortest = words.reduce((accumulator, currentValue) => {
+    return currentValue.length < accumulator.length ? currentValue : accumulator
+  }, words[0])
+  return shortest.length
+}
+
+
+// console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
+// console.log(findShort("turns out random test cases are easier than writing out basic ones"))
+// console.log(findShort("MadeSafeCoin LiteCoin"))
