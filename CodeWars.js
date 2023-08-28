@@ -278,3 +278,50 @@ function findShort(s) {
 // console.log(findShort("bitcoin take over the world maybe who knows perhaps"))
 // console.log(findShort("turns out random test cases are easier than writing out basic ones"))
 // console.log(findShort("MadeSafeCoin LiteCoin"))
+
+
+// -------------------------------//
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string)
+
+function solution(str, ending) {
+  return str.endsWith(ending)
+}
+
+// console.log(solution('abcde', 'cde'))
+// console.log(solution('abcde', 'abc'))
+
+
+// -------------------------------//
+// Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+const getSum = (a, b) => {
+  if (a === b) return a;
+  let arr = [a, b];
+  let highNum = Math.max(...arr)
+  let lowNum = Math.min(...arr)
+  let sum = 0
+  for (let i = lowNum; i <= highNum; i++) {
+    sum += i
+  }
+  return sum
+};
+
+// console.log(getSum(1, 0))
+
+
+// -------------------------------//
+// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+const filterString = (s1,s2)=> {
+  return (s1+s2).split('').reduce((accumulator, currentValue) => {
+    if(accumulator.indexOf(currentValue) ===-1){
+      accumulator.push(currentValue)
+    }
+    return accumulator
+  }, []).sort().join('')
+}
+
+
+
+console.log(filterString("aretheyhere", "yestheyarehere"))
+// console.log(filterString("loopingisfunbutdangerous", "lessdangerousthancoding"))
