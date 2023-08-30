@@ -312,9 +312,9 @@ const getSum = (a, b) => {
 // -------------------------------//
 // Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
 
-const filterString = (s1,s2)=> {
-  return (s1+s2).split('').reduce((accumulator, currentValue) => {
-    if(accumulator.indexOf(currentValue) ===-1){
+const filterString = (s1, s2) => {
+  return (s1 + s2).split('').reduce((accumulator, currentValue) => {
+    if (accumulator.indexOf(currentValue) === -1) {
       accumulator.push(currentValue)
     }
     return accumulator
@@ -323,5 +323,22 @@ const filterString = (s1,s2)=> {
 
 
 
-console.log(filterString("aretheyhere", "yestheyarehere"))
+// console.log(filterString("aretheyhere", "yestheyarehere"))
 // console.log(filterString("loopingisfunbutdangerous", "lessdangerousthancoding"))
+
+// -------------------------------//
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+// If the function is passed a valid PIN string, return true, else return false.
+
+
+
+const validatePIN = (s) => {
+  if(s === ''){
+    return false
+  }
+  const regex = /^(\d{4}|\d{6})?$/
+  return regex.test(s)
+}
+
+
+console.log(validatePIN("12345"))
