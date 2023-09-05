@@ -331,7 +331,6 @@ const filterString = (s1, s2) => {
 // If the function is passed a valid PIN string, return true, else return false.
 
 
-
 const validatePIN = (s) => {
   if(s === ''){
     return false
@@ -341,4 +340,20 @@ const validatePIN = (s) => {
 }
 
 
-console.log(validatePIN("12345"))
+// console.log(validatePIN("12345"))
+
+// -------------------------------//
+// In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new 
+// inhabitants per year come to live in the town. How many years does the town need to see its population greater or equal to p = 1200 inhabitants?
+
+const numYear = (pop, per, nih, goal) => {
+  let years = 0
+    while (pop < goal) {
+      pop = pop + (pop * (per/100)) + nih
+      years ++
+    }
+    return years
+}
+
+
+console.log(numYear(1500, 5, 100, 5000))
