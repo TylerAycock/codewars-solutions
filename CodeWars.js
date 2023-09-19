@@ -332,7 +332,7 @@ const filterString = (s1, s2) => {
 
 
 const validatePIN = (s) => {
-  if(s === ''){
+  if (s === '') {
     return false
   }
   const regex = /^(\d{4}|\d{6})?$/
@@ -348,12 +348,41 @@ const validatePIN = (s) => {
 
 const numYear = (pop, per, nih, goal) => {
   let years = 0
-    while (pop < goal) {
-      pop = pop + (pop * (per/100)) + nih
-      years ++
-    }
-    return years
+  while (pop < goal) {
+    pop = pop + (pop * (per / 100)) + nih
+    years++
+  }
+  return years
+}
+
+// console.log(numYear(1500, 5, 100, 5000))
+
+
+// -------------------------------//
+// There are pillars near the road. The distance between the pillars is the same and the width of the pillars is the same. Your function accepts three arguments:
+// 1. number of pillars (≥ 1);
+// 2. distance between pillars (10 - 30 meters);
+// 3. width of the pillar (10 - 50 centimeters).
+
+// Calculate the distance between the first and the last pillar in centimeters (without the width of the first and last pillar).
+
+const pillars = (num, dist, width) => {
+  let total = 0
+  let x = 1
+  while (x < num) {
+    total += dist
+    x++
+  }
+  if (num > 2) {
+    return total * 100 + (width * (num - 2))
+  } else {
+    return total * 100
+
+  }
+
 }
 
 
-console.log(numYear(1500, 5, 100, 5000))
+console.log(pillars(1, 10, 10)) //0
+console.log(pillars(2, 20, 25)) //2000
+console.log(pillars(11, 15, 30)) //15270
