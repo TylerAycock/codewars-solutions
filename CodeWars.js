@@ -383,6 +383,30 @@ const pillars = (num, dist, width) => {
 }
 
 
-console.log(pillars(1, 10, 10)) //0
-console.log(pillars(2, 20, 25)) //2000
-console.log(pillars(11, 15, 30)) //15270
+// console.log(pillars(1, 10, 10)) //0
+// console.log(pillars(2, 20, 25)) //2000
+// console.log(pillars(11, 15, 30)) //15270
+
+
+
+// -------------------------------//
+// Write a function that takes two arguments, and returns a new array populated with the elements that only appear once, in either one array or the other, taken only once; display order should follow what appears in arr1 first, then arr2:
+
+const hotSingles = (arr1, arr2) => {
+  let newArr = [...arr1, ...arr2]
+  let duplicates = []
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i])) {
+      duplicates.push(arr1[i])
+    }
+  }
+  return newArr.filter(item => {
+    return !duplicates.includes(item)
+  })
+}
+
+
+console.log(hotSingles([1, 2, 3, 3], [3, 2, 1, 4, 5]), `answer` + ' ' + [4,5])
+console.log(hotSingles([10, 200, 30], [10, 20, 3, 4, 5, 200]),`answer` + ' ' + [30, 20, 3, 4, 5])
+console.log(hotSingles([100, 45, "ciao"], [100, 2, 3, 45, 5]), `answer` + ' ' + ["ciao", 2, 3, 5])
