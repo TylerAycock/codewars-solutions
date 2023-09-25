@@ -407,6 +407,20 @@ const hotSingles = (arr1, arr2) => {
 }
 
 
-console.log(hotSingles([1, 2, 3, 3], [3, 2, 1, 4, 5]), `answer` + ' ' + [4,5])
-console.log(hotSingles([10, 200, 30], [10, 20, 3, 4, 5, 200]),`answer` + ' ' + [30, 20, 3, 4, 5])
-console.log(hotSingles([100, 45, "ciao"], [100, 2, 3, 45, 5]), `answer` + ' ' + ["ciao", 2, 3, 5])
+// console.log(hotSingles([1, 2, 3, 3], [3, 2, 1, 4, 5]), `answer` + ' ' + [4,5])
+// console.log(hotSingles([10, 200, 30], [10, 20, 3, 4, 5, 200]),`answer` + ' ' + [30, 20, 3, 4, 5])
+// console.log(hotSingles([100, 45, "ciao"], [100, 2, 3, 45, 5]), `answer` + ' ' + ["ciao", 2, 3, 5])
+
+
+// -------------------------------//
+// You get an array of numbers, return the sum of all of the positives ones.
+
+function positiveSum(arr) {
+  let positive = arr.filter(num => num > 0)
+  return positive.reduce((acc, cur) => {
+    return acc + cur
+  })
+}
+
+console.log(positiveSum([1, 2, 3, 4, 5])) //15
+console.log(positiveSum([1, -2, 3, 4, 5])) //13
