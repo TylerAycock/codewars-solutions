@@ -422,5 +422,40 @@ function positiveSum(arr) {
   })
 }
 
-console.log(positiveSum([1, 2, 3, 4, 5])) //15
-console.log(positiveSum([1, -2, 3, 4, 5])) //13
+// console.log(positiveSum([1, 2, 3, 4, 5])) //15
+// console.log(positiveSum([1, -2, 3, 4, 5])) //13
+
+
+
+// -------------------------------//
+// Complete the solution so that it reverses the string passed into it.
+
+const reverse = (s) => {
+  return s.split('').reverse().join('')
+}
+
+// console.log(reverse('world'))
+
+
+
+// -------------------------------//
+// Complete the function that accepts a string parameter, and reverses each word in the string. 
+//All spaces in the string should be retained.
+
+function reverseWords(s) {
+ return  s.split(' ').map(word => word.split('').reverse().join('')).join(' ')
+}
+
+// console.log(reverseWords('The quick brown fox jumps over the lazy dog.'))
+
+
+
+// -------------------------------//
+
+const ccMask = (cc) => {
+   let split = cc.split('')
+   split.length > 4 ?  
+}
+
+console.log(ccMask('4556364607935616'))
+console.log(ccMask('11111'))
