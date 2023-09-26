@@ -116,6 +116,12 @@ function maskify(cc) {
   }
 }
 
+// alternative answer
+
+const ccMask = (cc) => {
+  return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+}
+
 
 // console.log(maskify('4556364607935616'))
 // console.log(maskify('1'))
@@ -443,7 +449,7 @@ const reverse = (s) => {
 //All spaces in the string should be retained.
 
 function reverseWords(s) {
- return  s.split(' ').map(word => word.split('').reverse().join('')).join(' ')
+  return s.split(' ').map(word => word.split('').reverse().join('')).join(' ')
 }
 
 // console.log(reverseWords('The quick brown fox jumps over the lazy dog.'))
@@ -451,11 +457,27 @@ function reverseWords(s) {
 
 
 // -------------------------------//
+// Given a list of integers, determine whether the sum of its elements is odd or even.
+// Give your answer as a string matching "odd" or "even".
+// If the input array is empty consider it as: [0] (array with a zero).
 
-const ccMask = (cc) => {
-   let split = cc.split('')
-   split.length > 4 ?  
+function oddOrEven(array) {
+  if (array.length === 0) {
+    return 'even'
+  } else {
+    let sum = array.reduce((acc, red) => {
+      return acc + red
+    })
+    return sum%2===0? 'even' : 'odd'
+  }
 }
 
-console.log(ccMask('4556364607935616'))
-console.log(ccMask('11111'))
+// alternative answer
+const oddOrEven = (arr => {
+  return arr.reduce((a,b)=> a+b,0)%2===0? 'even':'odd'
+})
+
+// console.log(oddOrEven([0]))
+// console.log(oddOrEven([]))
+// console.log(oddOrEven([1023, 1, 2]))
+// console.log(oddOrEven([975269,-631999,634413,45417,-576623,-985505,369165,860703,90357,117663,-919245]))
