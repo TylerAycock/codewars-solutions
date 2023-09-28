@@ -511,10 +511,16 @@ function divisors(integer) {
 // Don't change the order of the elements that are left.
 
 function removeSmallest(arr) {
-  let dull = []
+  if (arr.length === 0) {
+    return arr
+  }
+
   let smallest = Math.min(...arr)
   let idx = arr.findIndex(num => num === smallest)
-  return idx < 0 ? [] : dull = arr.splice(idx, 1)
+
+  let dull = [...arr.slice(0, idx), ...arr.slice(idx + 1)]
+  return dull
+
 }
 
 console.log(removeSmallest([1, 2, 3, 4, 5]))
