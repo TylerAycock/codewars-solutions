@@ -468,16 +468,56 @@ function oddOrEven(array) {
     let sum = array.reduce((acc, red) => {
       return acc + red
     })
-    return sum%2===0? 'even' : 'odd'
+    return sum % 2 === 0 ? 'even' : 'odd'
   }
 }
 
 // alternative answer
-const oddOrEven = (arr => {
-  return arr.reduce((a,b)=> a+b,0)%2===0? 'even':'odd'
+const oddEven = (arr => {
+  return arr.reduce((a, b) => a + b, 0) % 2 === 0 ? 'even' : 'odd'
 })
 
 // console.log(oddOrEven([0]))
 // console.log(oddOrEven([]))
 // console.log(oddOrEven([1023, 1, 2]))
 // console.log(oddOrEven([975269,-631999,634413,45417,-576623,-985505,369165,860703,90357,117663,-919245]))
+
+
+// -------------------------------//
+// Create a function named divisorsthat takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), 
+// from smallest to largest. If the number is prime return the string '(integer) is prime'
+
+function divisors(integer) {
+  let divide = []
+  for (let i = 2; i < integer; i++) {
+    if (integer % i === 0) {
+      divide.push(i)
+    }
+  }
+  return divide.length ? divide : integer + " " + "is prime"
+};
+
+// console.log(divisors(15))
+// console.log(divisors(12))
+// console.log(divisors(13))
+
+
+// -------------------------------//
+
+// Given an array of integers, remove the smallest value. Do not mutate the original array/list. 
+// If there are multiple elements with the same value, remove the one with a lower index. 
+// If you get an empty array/list, return an empty array/list.
+
+// Don't change the order of the elements that are left.
+
+function removeSmallest(arr) {
+  let dull = []
+  let smallest = Math.min(...arr)
+  let idx = arr.findIndex(num => num === smallest)
+  return idx < 0 ? [] : dull = arr.splice(idx, 1)
+}
+
+console.log(removeSmallest([1, 2, 3, 4, 5]))
+console.log(removeSmallest([2, 2, 1, 2, 1]))
+console.log(removeSmallest([5, 3, 2, 1, 4]))
+console.log(removeSmallest([]))
