@@ -523,7 +523,57 @@ function removeSmallest(arr) {
 
 }
 
-console.log(removeSmallest([1, 2, 3, 4, 5]))
-console.log(removeSmallest([2, 2, 1, 2, 1]))
-console.log(removeSmallest([5, 3, 2, 1, 4]))
-console.log(removeSmallest([]))
+// console.log(removeSmallest([1, 2, 3, 4, 5]))
+// console.log(removeSmallest([2, 2, 1, 2, 1]))
+// console.log(removeSmallest([5, 3, 2, 1, 4]))
+// console.log(removeSmallest([]))
+
+
+
+// -------------------------------//
+function getDivisorsCnt(n) {
+  let count = 0
+
+  for (let i = 1; i <= n; i++) {
+    n % i === 0 && count++
+  }
+
+  return count
+}
+
+// console.log(getDivisorsCnt(1))
+// console.log(getDivisorsCnt(10))
+// console.log(getDivisorsCnt(11))
+// console.log(getDivisorsCnt(54))
+
+
+// -------------------------------//
+// turn every word we find into the taco bell recipe with each ingredient.
+// We want to input a word as a string, and return a list representing that word as a taco.
+
+function tacofy(word) {
+  let key = {
+    t: 'tomato',
+    l: 'lettuce',
+    c: 'cheese',
+    g: 'guacamole',
+    s: 'salsa',
+    a: 'beef',
+    e: 'beef',
+    i: 'beef',
+    o: 'beef',
+    u: 'beef'
+  }
+  let arr = word.toLowerCase().split('')
+  let taco = ["shell"]
+  for (let i = 0; i < arr.length; i++) {
+    if (key[arr[i]]) {
+      taco.push(key[arr[i]])
+    }
+  }
+  taco.push('shell')
+  return taco
+}
+
+console.log(tacofy("ggg"))
+console.log(tacofy("ydjkpwqrzto"))
