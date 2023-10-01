@@ -575,5 +575,40 @@ function tacofy(word) {
   return taco
 }
 
-console.log(tacofy("ggg"))
-console.log(tacofy("ydjkpwqrzto"))
+// console.log(tacofy("ggg"))
+// console.log(tacofy("ydjkpwqrzto"))
+
+
+
+// -------------------------------//
+// Write a function which takes a list of strings and returns each line prepended by the correct number.
+// The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+
+var number = function (arr) {
+  return arr.map((s, index) => {
+    return `${index + 1}:` + " " + s
+  })
+}
+
+// console.log(number(["a", "b", "c"]))
+
+
+// -------------------------------//
+// Mr. Scrooge has a sum of money 'P' that he wants to invest. Before he does, 
+// he wants to know how many years 'Y' this sum 'P' has to be kept in the bank in order for it to amount to a desired sum of money 'D'.
+// The sum is kept for 'Y' years in the bank where interest 'I' is paid yearly. After paying taxes 'T' for the year the new sum is re-invested.\
+// Note to Tax: not the invested principal is taxed, but only the year's accrued interest
+
+function calculateYears(principal, interest, tax, desired) {
+  let years = 0
+  while (principal < desired) {
+    let accruedInterest = principal * interest
+    let taxes = accruedInterest * tax
+    principal += (accruedInterest - taxes)
+    years++
+  }
+  return years
+}
+
+console.log(calculateYears(1000, 0.05, 0.18, 1100)) //answer is 3
+console.log(calculateYears(1000, 0.01625, 0.18, 1200)) //answer is 14
