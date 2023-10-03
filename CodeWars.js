@@ -610,5 +610,49 @@ function calculateYears(principal, interest, tax, desired) {
   return years
 }
 
-console.log(calculateYears(1000, 0.05, 0.18, 1100)) //answer is 3
-console.log(calculateYears(1000, 0.01625, 0.18, 1200)) //answer is 14
+// console.log(calculateYears(1000, 0.05, 0.18, 1100)) //answer is 3
+// console.log(calculateYears(1000, 0.01625, 0.18, 1200)) //answer is 14
+
+
+
+// -------------------------------//
+// Write a function that takes in a string of one or more words, and returns the same string, but with all FIVE or more letter words reversed.
+// Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+
+function spinWords(s) {
+  return s.split(' ').map(word => {
+    if (word.length >= 5) {
+      return word.split('').reverse().join('')
+    } else {
+      return word
+    }
+  }).join(' ')
+}
+
+// console.log(spinWords("Welcome"))
+// console.log(spinWords("Hey fellow warriors"))
+// console.log(spinWords("You are almost to the last test"))
+
+
+// -------------------------------//
+// Given an array of integers, find the one that appears an odd number of times.
+// There will always be only one integer that appears an odd number of times.
+
+function findOdd(arr) {
+  let obj = {}
+  for (let num of arr) {
+    if (!obj[num]) obj[num] = 0
+    obj[num] += 1
+  }
+
+  for (let num in obj) {
+    if (obj[num] % 2 === 1) {
+      return +num
+    }
+  }
+}
+
+console.log(findOdd([7]))
+console.log(findOdd([1, 1, 2]))
+console.log(findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]))
