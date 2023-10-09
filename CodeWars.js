@@ -687,6 +687,8 @@ function numberToString(num) {
 // console.log(numberToString(9))
 
 
+
+// -------------------------------//
 // You probably know the "like" system from Facebook and other pages. People can "like" blog posts, 
 // pictures or other items. We want to create the text that should be displayed next to such an item.
 // Implement the function which takes an array containing the names of people that like an item. 
@@ -717,9 +719,80 @@ function likes(names) {
   }
 }
 
-console.log(likes([]))
-console.log(likes(['Peter']))
-console.log(likes(['Jacob', 'Alex']))
-console.log(likes(['Max', 'John', 'Mark']))
-console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']))
+// console.log(likes([]))
+// console.log(likes(['Peter']))
+// console.log(likes(['Jacob', 'Alex']))
+// console.log(likes(['Max', 'John', 'Mark']))
+// console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']))
 
+
+// -------------------------------//
+// Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+
+function createPhoneNum(num) {
+  let first = ""
+  let second = ""
+  let third = ""
+  for (let i = 0; i < num.length; i++) {
+    if (i < 3) {
+      first += num[i]
+    }
+    if (i >= 3 && i < 6) {
+      second += num[i]
+    }
+    else if (i >= 6) {
+      third += num[i]
+    }
+  }
+  return `(${first}) ${second}-${third}`
+}
+
+//alternative solution to above problem
+
+const createPhoneNumber = (num) => {
+  let format = '(xxx) xxx-xxxx'
+
+  for (let i = 0; i < num.length; i++) {
+    format = format.replace('x', num[i]);
+  }
+
+  return format
+}
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+
+
+// -------------------------------//
+// Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+function boolToWord(bool) {
+  return bool ? 'Yes' : 'No'
+}
+
+// console.log(boolToWord(true))
+// console.log(boolToWord(false))
+
+
+
+// -------------------------------//
+// It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. 
+// You're given one parameter, the original string.
+//  You don't have to worry with strings with less than two characters.
+
+function removeChar(s) {
+  return s.slice(1, - 1)
+};
+
+// console.log(removeChar('eloquent'))
+
+
+// -------------------------------//
+// implement a difference function, which subtracts one list from another and returns the result.
+// It should remove all values from list a, which are present in list b keeping their order.
+
+// arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+function arrayDiff(a, b) {
+  return a.filter(num => !b.includes(num))
+}
+
+console.log(arrayDiff([1, 2, 3], [1, 2]))
