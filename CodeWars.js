@@ -795,4 +795,49 @@ function arrayDiff(a, b) {
   return a.filter(num => !b.includes(num))
 }
 
-console.log(arrayDiff([1, 2, 3], [1, 2]))
+// console.log(arrayDiff([1, 2, 3], [1, 2]))
+
+
+// -------------------------------//
+// Digital root is the recursive sum of all the digits in a number.
+// Given n, take the sum of the digits of n. If that value has more than one digit, 
+// continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+// ex:
+// 16  -->  1 + 6 = 7
+// 942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+
+function digitalRoot(n) {
+  while (n >= 10) {
+    let sum = 0
+    n.toString().split('').forEach(num => sum += +num)
+    n = sum
+  }
+  return n
+}
+
+// console.log(digitalRoot(16))
+// console.log(digitalRoot(456))
+
+
+
+// -------------------------------//
+// Given an array of integers your solution should find the smallest integer.
+
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(...args)
+  }
+}
+
+// console.log(findSmallestInt([78,56,232,12,8]))
+
+
+
+// -------------------------------//
+// Write a function that removes the spaces from the string, then return the resultant string.
+
+noSpace = str => {
+  return str.split(' ').join('')
+ }
+
+// console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B'))
