@@ -838,6 +838,81 @@ class SmallestIntegerFinder {
 
 noSpace = str => {
   return str.split(' ').join('')
- }
+}
 
 // console.log(noSpace('8 j 8   mBliB8g  imjB8B8  jl  B'))
+
+
+
+// -------------------------------//
+// Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. 
+// The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+// ex:
+// "abcde" -> 0 # no characters repeats more than once
+// "aabbcde" -> 2 # 'a' and 'b'
+// "aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+// "indivisibility" -> 1 # 'i' occurs six times
+// "Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+// "aA11" -> 2 # 'a' and '1'
+// "ABBA" -> 2 # 'A' and 'B' each occur twice
+
+function duplicateCount(s) {
+  let letters = {}
+  let num = 0
+
+  s.toLowerCase().split('').map(item => {
+    if (!letters[item]) {
+      letters[item] = 0
+      letters[item] += 1
+    } else {
+      letters[item] += 1
+    }
+  })
+
+  let duplicate = Object.values(letters)
+  duplicate.map(item => item >= 2 && num++)
+
+  return num
+}
+
+// console.log(duplicateCount("abcde"))
+// console.log(duplicateCount("aabBcde"))
+// console.log(duplicateCount("aA11"))
+// console.log(duplicateCount("Indivisibility"))
+
+
+// -------------------------------//
+// The goal of this exercise is to convert a string to a new string where each character in the new string is "(" 
+// if that character appears only once in the original string, or ")" if that character appears more than once in the original string. 
+// Ignore capitalization when determining if a character is a duplicate.
+
+function duplicateEncode(s) {
+  obj = {}
+  let arr = s.toLowerCase().split('')
+
+  arr.map(letter => {
+    if (!obj[letter]) {
+      obj[letter] = 0
+      obj[letter]++
+    } else {
+      obj[letter]++
+    }
+  })
+
+  let answer = []
+  for (let i = 0; i < arr.length; i++) {
+    if (obj[arr[i]] >= 2) {
+      answer.push(")")
+    } else {
+      answer.push("(")
+    }
+  }
+
+  return answer.join('')
+}
+
+
+console.log(duplicateEncode("din"))
+console.log(duplicateEncode("recede"))
+console.log(duplicateEncode("Success"))
