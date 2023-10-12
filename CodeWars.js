@@ -913,6 +913,45 @@ function duplicateEncode(s) {
 }
 
 
-console.log(duplicateEncode("din"))
-console.log(duplicateEncode("recede"))
-console.log(duplicateEncode("Success"))
+// console.log(duplicateEncode("din"))
+// console.log(duplicateEncode("recede"))
+// console.log(duplicateEncode("Success"))
+
+
+
+// -------------------------------//
+// You are given an array (which will have a length of at least 3, but could be very large) containing integers. 
+// The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. 
+// Write a method that takes the array as an argument and returns this "outlier" N.
+
+function findOutlier(arr) {
+  let even = 0
+  let odd = 0
+  arr.forEach(num => {
+    if (num % 2 === 0) {
+      even++
+    } else if (num % 2 == 1 || num % 2 === -1) {
+      odd++
+    }
+  })
+  return even > odd ? arr.find(num => num % 2 === 1) : arr.find(num => num % 2 === 0)
+}
+
+// console.log(findOutlier([0, 1, 2]))
+// console.log(findOutlier([2, 6, 8, 10, 3]))
+
+
+
+// -------------------------------//
+// given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it.
+
+function alphabetPosition(s) {
+  let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  return s.toLowerCase().split('').map(letter => {
+    let num = (alphabet.indexOf(letter))
+    return num + 1
+  }).filter(num => num !== 0).join(' ')
+}
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."))
+console.log(alphabetPosition("The narwhal bacons at midnight."))
