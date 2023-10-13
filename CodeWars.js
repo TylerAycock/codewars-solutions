@@ -953,5 +953,27 @@ function alphabetPosition(s) {
   }).filter(num => num !== 0).join(' ')
 }
 
-console.log(alphabetPosition("The sunset sets at twelve o' clock."))
-console.log(alphabetPosition("The narwhal bacons at midnight."))
+// console.log(alphabetPosition("The sunset sets at twelve o' clock."))
+// console.log(alphabetPosition("The narwhal bacons at midnight."))
+
+
+
+// -------------------------------//
+// Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, 
+// which is the number of times you must multiply the digits in num until you reach a single digit.
+
+// ex: 9 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+
+function persistence(num) {
+  let times = 0
+  while (num >= 10) {
+    num = num.toString().split('').reduce((acc, cur) => +acc * +cur)
+    times++
+  }
+  return times
+}
+
+// console.log(persistence(39));
+// console.log(persistence(4));
+// console.log(persistence(25));
+// console.log(persistence(999));
