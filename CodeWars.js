@@ -984,17 +984,66 @@ function persistence(num) {
 // The new list should be a copy of the original list, sorted first by the animal's number of legs, and then by its name.
 
 function sortAnimal(animals) {
-  return animals.map(obj => {
+  return animals.map(animal => {
     return {
-      numberOfLegs: obj.numberOfLegs,
-      name: obj.name
+      numberOfLegs: animal.numberOfLegs,
+      name: animal.name
     }
   })
 }
 
-console.log(sortAnimal([{ name: "Cat", numberOfLegs: 4 },
-{ name: "Snake", numberOfLegs: 0 },
-{ name: "Dog", numberOfLegs: 4 },
-{ name: "Pig", numberOfLegs: 4 },
-{ name: "Human", numberOfLegs: 2 },
-{ name: "Bird", numberOfLegs: 2 }]))
+// console.log(sortAnimal([{ name: "Cat", numberOfLegs: 4 },
+// { name: "Snake", numberOfLegs: 0 },
+// { name: "Dog", numberOfLegs: 4 },
+// { name: "Pig", numberOfLegs: 4 },
+// { name: "Human", numberOfLegs: 2 },
+// { name: "", numberOfLegs:""  }]))
+
+
+
+// -------------------------------//
+
+// Your task is to create a function that does four basic mathematical operations.
+// The function should take three arguments - operation(string/char), value1(number), value2(number).
+// The function should return result of numbers after applying the chosen operation.
+
+
+function basicOp(operation, value1, value2) {
+  if (operation === '+') {
+    return value1 + value2
+  } else if (operation === '-') {
+    return value1 - value2
+  } else if (operation === '*') {
+    return value1 * value2
+  } else if (operation === '/') {
+    return value1 / value2
+  }
+}
+
+// console.log(basicOp('+', 4, 7));
+// console.log(basicOp('-', 15, 18));
+// console.log(basicOp('*', 5, 5));
+// console.log(basicOp('/', 49, 7))
+
+
+
+// -------------------------------//
+
+// Convert dash/underscore delimited words into camel casing. 
+// The first word within the output should be capitalized only if the original word was capitalized. 
+// The next words should be always capitalized.
+
+function toCamelCase(str) {
+  let regexp = /^[A_Z]/
+  let split = str.includes("-") ? str.split("-") : str.split("_")
+  let word = split.map(word => {
+    return word[0]
+  })
+
+  return regexp.test(word[0])
+}
+
+console.log(toCamelCase(''))
+console.log(toCamelCase("the_stealth_warrior")) //"theStealthWarrior"
+console.log(toCamelCase("The-Stealth-Warrior")),  //"TheStealthWarrior"
+  console.log(toCamelCase("A-B-C"))  //"ABC"
