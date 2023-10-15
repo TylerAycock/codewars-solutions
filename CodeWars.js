@@ -977,3 +977,24 @@ function persistence(num) {
 // console.log(persistence(4));
 // console.log(persistence(25));
 // console.log(persistence(999));
+
+
+// -------------------------------//
+// Write a method that accepts a list of objects of type Animal, and returns a new list. 
+// The new list should be a copy of the original list, sorted first by the animal's number of legs, and then by its name.
+
+function sortAnimal(animals) {
+  return animals.map(obj => {
+    return {
+      numberOfLegs: obj.numberOfLegs,
+      name: obj.name
+    }
+  })
+}
+
+console.log(sortAnimal([{ name: "Cat", numberOfLegs: 4 },
+{ name: "Snake", numberOfLegs: 0 },
+{ name: "Dog", numberOfLegs: 4 },
+{ name: "Pig", numberOfLegs: 4 },
+{ name: "Human", numberOfLegs: 2 },
+{ name: "Bird", numberOfLegs: 2 }]))
