@@ -1034,16 +1034,25 @@ function basicOp(operation, value1, value2) {
 // The next words should be always capitalized.
 
 function toCamelCase(str) {
-  let regexp = /^[A_Z]/
+  let regexp = /^[A-Z]/
   let split = str.includes("-") ? str.split("-") : str.split("_")
-  let word = split.map(word => {
-    return word[0]
-  })
-
-  return regexp.test(word[0])
+  if (split.length === 1) {
+    return ""
+  } else {
+    return split.map(word => {
+      if (regexp.test(word)) {
+        return word
+      } else {
+        return word[0].toUpperCase() + word.slice(1)
+      }
+    }).join("")
+  }
 }
 
 console.log(toCamelCase(''))
 console.log(toCamelCase("the_stealth_warrior")) //"theStealthWarrior"
 console.log(toCamelCase("The-Stealth-Warrior")),  //"TheStealthWarrior"
-  console.log(toCamelCase("A-B-C"))  //"ABC"
+console.log(toCamelCase("A-B-C"))  //"ABC"
+
+
+
