@@ -1068,3 +1068,35 @@ var uniqueInOrder = function (iterable) {
 // console.log(uniqueInOrder('AAAABBBCCDAABBB'))// ['A', 'B', 'C', 'D', 'A', 'B']
 // console.log(uniqueInOrder('ABBCcAD'))        //['A', 'B', 'C', 'c', 'A', 'D']
 // console.log(uniqueInOrder([1, 2, 2, 3, 3]))     //[1,2,3]
+
+
+
+// -------------------------------//
+
+// The first century spans from the year 1 up to and including the year 100, the second century - 
+// from the year 101 up to and including the year 200, etc.
+
+function century(year) {
+  return Math.ceil((year/100))
+}
+
+// console.log(century(1705))
+// console.log(century(1900))
+
+
+// -------------------------------//
+// Your task is to sort a given string. Each word in the string will contain a single number. 
+// This number indicates the words proper position.
+// Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+// If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
+
+
+function order(words){
+ 
+  let arr = words.split(" ")
+  for(let )
+}
+
+    console.log(order("is2 Thi1s T4est 3a")), 
+    console.log(order("4of Fo1r pe6ople g3ood th5e the2")),
+    console.log(order(""))
