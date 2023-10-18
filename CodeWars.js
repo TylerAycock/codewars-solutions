@@ -1077,7 +1077,7 @@ var uniqueInOrder = function (iterable) {
 // from the year 101 up to and including the year 200, etc.
 
 function century(year) {
-  return Math.ceil((year/100))
+  return Math.ceil((year / 100))
 }
 
 // console.log(century(1705))
@@ -1091,12 +1091,12 @@ function century(year) {
 // If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
 
 
-function order(words){
- 
-  let arr = words.split(" ")
-  for(let )
+function order(words) {
+  return !words.length ? "" : words.split(" ").map(word => {
+    return word.match(/(\d+)/)
+  }).sort().map(item => item.input).join(" ")
 }
 
-    console.log(order("is2 Thi1s T4est 3a")), 
-    console.log(order("4of Fo1r pe6ople g3ood th5e the2")),
-    console.log(order(""))
+// console.log(order("is2 Thi1s T4est 3a")),
+// console.log(order("4of Fo1r pe6ople g3ood th5e the2")),
+// console.log(order(""))
