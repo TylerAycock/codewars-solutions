@@ -1121,5 +1121,46 @@ function isPangram(string) {
   return true;
 }
 
-console.log(isPangram("The quick brown fox jumps over the lazy dog."))
-console.log(isPangram("This is not a pangram."))
+// console.log(isPangram("The quick brown fox jumps over the lazy dog."))
+// console.log(isPangram("This is not a pangram."))
+
+
+// -------------------------------//
+// Write an algorithm that takes an array and moves all of the zeros to the end, 
+// preserving the order of the other elements.
+
+function moveZeros(arr) {
+  let zero = []
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      zero.push(arr[i])
+    }
+  }
+  return arr.filter(num => num !== 0).concat(zero)
+}
+
+// console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])) //[1, 2, 1, 1, 3, 1, 0, 0, 0, 0])
+// console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"])) // returns[false,1,1,2,1,3,"a",0,0]
+
+
+
+// -------------------------------//
+
+// A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, 
+// each raised to the power of the number of digits in a given base. In this Kata, we will restrict 
+// ourselves to decimal (base 10). For example, take 153 (3 digits), which is narcissistic:
+// 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+
+function narcissistic(value) {
+  let arr = String(value).split("").map(Number)
+
+  let num = arr.map(num => {
+    return Math.pow(num, arr.length)
+  }).reduce((cur, acc) => cur + acc, 0)
+
+  return value === num ? true : false
+
+}
+
+// console.log(narcissistic(153))
+// console.log(narcissistic(122))
