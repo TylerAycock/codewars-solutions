@@ -1164,3 +1164,33 @@ function narcissistic(value) {
 
 // console.log(narcissistic(153))
 // console.log(narcissistic(122))
+
+// -------------------------------//
+
+// Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+
+function pigIt(str) {
+  let regex = /[^A-Za-z]+/
+  return str.split(" ").map(word => {
+    if (regex.test(word)) {
+      return word
+    } else {
+      return word.slice(1) + word.slice(0, 1) + "ay"
+    }
+  }).join(" ")
+}
+
+
+// console.log(pigIt('Pig latin is cool'))
+// console.log(pigIt('This is my string'))
+
+// -------------------------------//
+// Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+function abbrevName(name){
+  let initial = name.split(" ").map(word => word[0])
+  return `${initial[0]}.${initial[1]}`
+
+}
+
+// console.log(abbrevName("Sam Harris"))
