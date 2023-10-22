@@ -142,13 +142,13 @@ const sumTwoSmallestNumbers = arr => {
 
 
 // -------------------------------//
-// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, 
+// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the log possible, 
 // containing distinct letters - each taken only once - coming from s1 or s2.
 
 
 //solution #1 filter method
 
-const theLongest = (s1, s2) => {
+const thelog = (s1, s2) => {
 
   let s3 = (s1 + s2).split('')
 
@@ -163,13 +163,13 @@ const theLongest = (s1, s2) => {
 
 // solution #2 new Set method
 
-const longest = (s1, s2) => {
+const log = (s1, s2) => {
 
   let unique = [...new Set((s1 + s2).split(''))]
   return unique.join('')
 }
 
-// console.log(longest("aretheyhere", "yestheyarehere"))
+// console.log(log("aretheyhere", "yestheyarehere"))
 
 
 
@@ -316,7 +316,7 @@ const getSum = (a, b) => {
 
 
 // -------------------------------//
-// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+// Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the log possible, containing distinct letters - each taken only once - coming from s1 or s2.
 
 const filterString = (s1, s2) => {
   return (s1 + s2).split('').reduce((accumulator, currentValue) => {
@@ -1187,10 +1187,47 @@ function pigIt(str) {
 // -------------------------------//
 // Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
 
-function abbrevName(name){
+function abbrevName(name) {
   let initial = name.split(" ").map(word => word[0])
   return `${initial[0]}.${initial[1]}`
 
 }
 
 // console.log(abbrevName("Sam Harris"))
+
+
+// -------------------------------//
+// Create a function that checks if a number n is divisible by two numbers x AND y. 
+// All inputs are positive, non-zero numbers.
+
+function isDivisible(n, x, y) {
+  return n % x === 0 && n % y === 0 ? true : false
+}
+
+// console.log(isDivisible(3,3,4)); //false
+// console.log(isDivisible(12,3,4)) //true
+// console.log(isDivisible(8,3,4)) //false 
+
+
+
+// -------------------------------//
+// given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. 
+// If there is no index that would make this happen, return -1.
+
+function findEvenIndex(arr) {
+
+  for (let i = 0; i < arr.length; i++) {
+    let left = arr.slice(0, i)
+    let right = arr.slice(i + 1)
+    let leftSum = left.reduce((acc, cur) => acc + cur, 0)
+    let rightSum = right.reduce((acc, cur) => acc + cur, 0)
+    if (leftSum === rightSum) {
+      return i
+    }
+  }
+  return -1
+}
+
+console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1])); //3
+console.log(findEvenIndex([1, 100, 50, -51, 1, 1])) //1
+console.log(findEvenIndex([1, 2, 3, 4, 5, 6])) //-1 
