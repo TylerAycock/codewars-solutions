@@ -1228,6 +1228,37 @@ function findEvenIndex(arr) {
   return -1
 }
 
-console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1])); //3
-console.log(findEvenIndex([1, 100, 50, -51, 1, 1])) //1
-console.log(findEvenIndex([1, 2, 3, 4, 5, 6])) //-1 
+// console.log(findEvenIndex([1, 2, 3, 4, 3, 2, 1])); //3
+// console.log(findEvenIndex([1, 100, 50, -51, 1, 1])) //1
+// console.log(findEvenIndex([1, 2, 3, 4, 5, 6])) //-1 
+
+
+// -------------------------------//
+// Write a function findNeedle() that takes an array full of junk but containing one "needle"
+// return message: "found the needle at position ${n} " 
+
+function findNeedle(haystack) {
+  let index = haystack.findIndex(word => {
+    return word === "needle"
+  })
+
+  return `found the needle at position ${index}`
+}
+
+
+// console.log(findNeedle(['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false]))
+
+
+// -------------------------------//
+// There is an array with some numbers. All numbers are equal except for one. Try to find it!
+// It’s guaranteed that array contains at least 3 numbers.
+// The tests contain some very huge arrays, so think about performance.
+
+
+function findUniq(arr) {
+  return arr.filter((num) => arr.indexOf(num) === arr.lastIndexOf(num))[0]
+}
+
+console.log(findUniq([1, 1, 1, 2, 1, 1]));
+console.log(findUniq([1, 1, 2, 1, 1]));
+console.log(findUniq([3, 10, 3, 3, 3]));
