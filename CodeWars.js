@@ -1259,6 +1259,53 @@ function findUniq(arr) {
   return arr.filter((num) => arr.indexOf(num) === arr.lastIndexOf(num))[0]
 }
 
-console.log(findUniq([1, 1, 1, 2, 1, 1]));
-console.log(findUniq([1, 1, 2, 1, 1]));
-console.log(findUniq([3, 10, 3, 3, 3]));
+// console.log(findUniq([1, 1, 1, 2, 1, 1]));
+// console.log(findUniq([1, 1, 2, 1, 1]));
+// console.log(findUniq([3, 10, 3, 3, 3]));
+
+
+
+// -------------------------------//
+// There is a bus moving in the city which takes and drops some people at each bus stop.
+// You are provided with a list (or array) of integer pairs. Elements of each pair represent the number of 
+// people that get on the bus (the first item) and the number of people that get off the bus (the second item) at a bus stop.
+// Your task is to return the number of people who are still on the bus after the last bus stop (after the last array). 
+// Even though it is the last bus stop, the bus might not be empty and some people might still be inside the bus, 
+// they are probably sleeping.
+
+
+var number = function (busStops) {
+  let passengers = 0
+  for (let i = 0; i < busStops.length; i++) {
+    passengers += busStops[i][0]
+    passengers -= busStops[i][1]
+  }
+  return passengers
+}
+
+// console.log(number([[10, 0], [3, 5], [5, 8]])) //5
+// console.log(number([[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]]))//17
+// console.log(number([[3, 0], [9, 1], [4, 8], [12, 2], [6, 1], [7, 8]])) // 21
+// console.log(number([[0, 0]])) //0
+
+
+
+// -------------------------------//
+// Complete the solution so that it splits the string into pairs of two characters. 
+// If the string contains an odd number of characters then it should replace the missing 
+// second character of the final pair with an underscore ('_').
+
+function solution(str) {
+  let arr = []
+  if (str.length % 2 === 1) {
+    str = str + "_"
+  }
+  for (let i = 0; i < str.length; i += 2) {
+    arr.push(str[i] + str[i + 1])
+  }
+  return arr
+}
+
+console.log(solution("abcdef")) // ["ab", "cd", "ef"]
+console.log(solution("abcdefg"))// ["ab", "cd", "ef", "g_"]
+console.log(solution("")) // []
