@@ -1347,6 +1347,47 @@ function sortArray(array) {
 }
 
 
-console.log(sortArray([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
-console.log(sortArray([5, 3, 1, 8, 0]))    // [1, 3, 5, 8, 0]
-console.log(sortArray([])) //[]
+// console.log(sortArray([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
+// console.log(sortArray([5, 3, 1, 8, 0]))    // [1, 3, 5, 8, 0]
+// console.log(sortArray([])) //[]
+
+
+
+// -------------------------------//
+// Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) 
+// that checks whether the two arrays have the "same" elements, with the same multiplicities 
+// (the multiplicity of a member is the number of times it appears). "Same" means, here, 
+// that the elements in b are the elements in a squared, regardless of the order.
+
+// function comp(arr1, arr2) {
+//   let newArr1 = arr1.sort()
+//   let newArr2 = arr2.sort()
+//   for (let i = 0; i < newArr1.length; i++) {
+//     if (newArr2[i] === (newArr1[i] * newArr1[i])) {
+
+//     } else {
+//       return false
+//     }
+//   }
+//   return true
+// }
+
+function comp(arr1, arr2) {
+  if (arr1 === null || arr2 === null || arr1.length !== arr2.length) {
+    return false;
+  }
+
+  const sortedArr1 = arr1.sort()
+  const sortedArr2 = arr2.sort()
+
+  for (let i = 0; i < sortedArr1.length; i++) {
+    if (sortedArr1[i] * sortedArr1[i] !== sortedArr2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361])) //true
+console.log(comp([2, 2, 3], [4, 9, 9]))
