@@ -1306,6 +1306,47 @@ function solution(str) {
   return arr
 }
 
-console.log(solution("abcdef")) // ["ab", "cd", "ef"]
-console.log(solution("abcdefg"))// ["ab", "cd", "ef", "g_"]
-console.log(solution("")) // []
+// console.log(solution("abcdef")) // ["ab", "cd", "ef"]
+// console.log(solution("abcdefg"))// ["ab", "cd", "ef", "g_"]
+// console.log(solution("")) // []
+
+
+// -------------------------------//
+// Write a function which calculates the average of the numbers in a given list
+
+
+function findAverage(arr) {
+  return arr.length === 0 ? 0 : (arr.reduce((acc, cur) => acc + cur, 0) / arr.length)
+}
+
+// console.log(findAverage([1, 1, 1]), 1);
+// console.log(findAverage([1, 2, 3]), 2);
+// console.log(findAverage([1, 2, 3, 4]), 2.5);
+// console.log(findAverage([]))
+
+
+
+// -------------------------------//
+// You will be given an array of numbers. You have to sort the odd numbers in ascending order while 
+// leaving the even numbers at their original positions.
+
+function sortArray(array) {
+  let odd = array.filter(num => num % 2 === 1).sort()
+
+  let result = [];
+
+  for (let num of array) {
+    if (num % 2 === 0) {
+      result.push(num); // Keep even numbers in their current index
+    } else {
+      result.push(odd.shift()); // Reinsert sorted odd numbers
+    }
+  }
+
+  return result;
+}
+
+
+console.log(sortArray([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
+console.log(sortArray([5, 3, 1, 8, 0]))    // [1, 3, 5, 8, 0]
+console.log(sortArray([])) //[]
