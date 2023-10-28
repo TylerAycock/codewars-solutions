@@ -1354,8 +1354,7 @@ function sortArray(array) {
 
 
 // -------------------------------//
-// Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) 
-// that checks whether the two arrays have the "same" elements, with the same multiplicities 
+// Given two arrays a and b write a function that checks whether the two arrays have the "same" elements, with the same multiplicities 
 // (the multiplicity of a member is the number of times it appears). "Same" means, here, 
 // that the elements in b are the elements in a squared, regardless of the order.
 
@@ -1386,8 +1385,83 @@ function comp(arr1, arr2) {
     }
   }
   return true;
+
 }
 
 
-console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361])) //true
-console.log(comp([2, 2, 3], [4, 9, 9]))
+// console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361])) //true
+// console.log(comp([2, 2, 3], [4, 9, 9]))
+
+
+
+
+
+// -------------------------------//
+
+// You want to know if you're better than the average student in your class.
+// You receive an array with your peers' test scores. Now calculate the average and compare your score!
+// Return True if you're better, else False!
+
+
+function betterThanAverage(classPoints, yourPoints) {
+  return yourPoints > classPoints.reduce((acc, cur) => acc + cur, 0) / classPoints.length + 1 ? true : false
+
+}
+
+// console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75)) //true
+
+
+
+
+// -------------------------------//
+
+// Given an array of integers, return an array, where the first element is the count of positives 
+// numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+// If the input is an empty array or is null, return an empty array.
+
+function countPositivesSumNegatives(arr) {
+  if (arr.length === 0) {
+    return []
+  } else {
+    let positive = 0
+    let negative = 0
+    arr.map(num => {
+      if (num > 0) {
+        positive++
+      } else if (num < 0) {
+        negative += num
+      }
+    })
+    return [positive, negative]
+  }
+}
+
+
+// console.log(countPositivesSumNegatives([]))
+// console.log(countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15])) //[10,-65]
+
+
+
+
+// -------------------------------//
+
+// You will be given an array of numbers. You have to sort the odd numbers in ascending order 
+// while leaving the even numbers at their original positions.
+
+
+function sortOddNums(array) {
+  let odd = array.filter(num => num % 2 == 1).sort()
+
+  return array.map(num => {
+    if (num % 2 === 1) {
+      let order = odd.shift(1)
+      return num = order
+    } else {
+      return num
+    }
+  })
+}
+
+
+console.log(sortOddNums([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
+console.log(sortOddNums([5, 3, 1, 8, 0])) //[1, 3, 5, 8, 0]
