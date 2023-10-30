@@ -1482,6 +1482,21 @@ function findDup(arr) {
   }
 }
 
-
 // console.log(findDup([1,2,2,3])) //2
 // console.log(findDup([1,3,2,5,4,5,7,6])) //5
+
+
+
+// -------------------------------//
+
+// Create a function that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+// You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+// The array will always contain letters in only one case.
+
+const findMissingLetter = (arr) => {
+  return arr.map()
+
+}
+
+console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f'])) // e
+console.log(findMissingLetter(['O', 'Q', 'R', 'S'])) //p
