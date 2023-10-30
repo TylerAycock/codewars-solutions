@@ -1463,5 +1463,25 @@ function sortOddNums(array) {
 }
 
 
-console.log(sortOddNums([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
-console.log(sortOddNums([5, 3, 1, 8, 0])) //[1, 3, 5, 8, 0]
+// console.log(sortOddNums([5, 3, 2, 8, 1, 4])) //[1, 3, 2, 8, 5, 4]
+// console.log(sortOddNums([5, 3, 1, 8, 0])) //[1, 3, 5, 8, 0]
+
+
+
+// -------------------------------//
+
+// You are given an array of n+1 integers 1 through n. In addition there is a single duplicate integer
+// You should return the duplicate value as a single integer.
+
+function findDup(arr) {
+  let sorted = arr.sort()
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted[i] === sorted[i + 1]) {
+      return sorted[i]
+    }
+  }
+}
+
+
+// console.log(findDup([1,2,2,3])) //2
+// console.log(findDup([1,3,2,5,4,5,7,6])) //5
