@@ -1494,7 +1494,13 @@ function findDup(arr) {
 // The array will always contain letters in only one case.
 
 const findMissingLetter = (arr) => {
-  return arr.map()
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] +1 !== arr[i + 1]) {
+      console.log('missing a letter')
+      return String.fromCharCode(arr[i] + 1)
+    }
+  }
+  return 'string containers all consecutive letters'
 
 }
 
