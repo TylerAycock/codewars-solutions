@@ -1493,16 +1493,20 @@ function findDup(arr) {
 // You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
 // The array will always contain letters in only one case.
 
-const findMissingLetter = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] +1 !== arr[i + 1]) {
-      console.log('missing a letter')
-      return String.fromCharCode(arr[i] + 1)
-    }
-  }
-  return 'string containers all consecutive letters'
 
+const findMissingLetter = (arr) => {
+  let prevLetter = arr[0].charCodeAt(0); // Get the character code of the first letter
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].charCodeAt(0) !== prevLetter + 1) {
+      return String.fromCharCode(prevLetter + 1); // Convert the character code back to a letter
+    }
+    prevLetter = arr[i].charCodeAt(0); // Update the previous letter's character code
+  }
+  
+  return "No missing letter found"; 
 }
 
-console.log(findMissingLetter(['a', 'b', 'c', 'd', 'f'])) // e
-console.log(findMissingLetter(['O', 'Q', 'R', 'S'])) //p
+console.log(findMissingLetter(['a', 'b', 'c', 'e', 'f']))
+
+// console.log(findMissingLetter(['O', 'Q', 'R', 'S'])) //p
