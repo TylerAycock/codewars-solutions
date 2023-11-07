@@ -1503,10 +1503,42 @@ const findMissingLetter = (arr) => {
     }
     prevLetter = arr[i].charCodeAt(0); // Update the previous letter's character code
   }
-  
-  return "No missing letter found"; 
+
+  return "No missing letter found";
 }
 
-console.log(findMissingLetter(['a', 'b', 'c', 'e', 'f']))
-
+// console.log(findMissingLetter(['a', 'b', 'c', 'e', 'f']))
 // console.log(findMissingLetter(['O', 'Q', 'R', 'S'])) //p
+
+
+
+// -------------------------------//
+
+// Write function bmi that calculates body mass index (bmi = weight / height2).
+// if bmi <= 18.5 return "Underweight"
+// if bmi <= 25.0 return "Normal"
+// if bmi <= 30.0 return "Overweight"
+// if bmi > 30 return "Obese"
+
+function bmi(weight, height) {
+  let bmi = weight / (height * height);
+  let category;
+
+  switch (true) {
+    case bmi < 18.5:
+      category = "Underweight";
+      break;
+    case bmi < 24.9:
+      category = "Normal Weight";
+      break;
+    case bmi < 29.9:
+      category = "Overweight";
+      break;
+    default:
+      category = "Obese";
+  }
+
+  return category;
+}
+
+console.log(bmi(80, 1.80))
