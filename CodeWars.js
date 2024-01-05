@@ -1541,4 +1541,27 @@ function bmi(weight, height) {
   return category;
 }
 
-console.log(bmi(80, 1.80))
+// console.log(bmi(80, 1.80))
+
+
+
+// What Javascript statement in place of "?" will make the result always be between 6 and 7? 
+
+const x = 2; 
+let y = 4;
+
+function update(arg) { 
+  return Math.random() + y * arg; 
+} 
+y = 2; y=3; 
+
+const result = update(x); 
+
+// console.log(result)
+
+
+function evenOrOdd(number) {
+  return number%2==0?"Even": "Odd"
+ }
+
+ console.log(evenOrOdd(2))
