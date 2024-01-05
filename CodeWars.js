@@ -1623,3 +1623,84 @@ function getCount(str) {
 }
 
 // console.log(getCount("abracadabra"), 5)
+
+
+
+// -------------------------------//
+// Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+function disemvowel(str) {
+  return str.split("").filter(letter => !"aeiou".includes(letter.toLowerCase())).join("")
+}
+
+
+// console.log(disemvowel("This website is for losers LOL!"), "Ths wbst s fr lsrs LL!")
+// console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"), "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+// console.log(disemvowel("What are you, a communist?"), "Wht r y,  cmmnst?")
+
+
+
+// -------------------------------//
+// Write a function that squares every digit of a number and concatenate them.
+
+function squareDigits(num) {
+  return +num.toString().split("").map(num => +num * +num).join("")
+}
+
+// console.log(squareDigits(3212))
+
+
+
+// -------------------------------//
+
+// Given a string of space separated numbers, return the highest and lowest number.
+
+function highAndLow(num) {
+  let arr = num.split(" ").map(num => +num)
+  return `${Math.max(...arr)} ${Math.min(...arr)}`
+}
+// console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"), "42 -9");
+
+
+
+
+// -------------------------------//
+//make a function that can take any non-negative integer as an argument and return it with its digits in descending order.
+
+function descendingOrder(n) {
+  return +n.toString().split('').map(Number).sort().reverse().join('')
+}
+
+// console.log(descendingOrder(1), 1)
+// console.log(descendingOrder(111), 111)
+// console.log(descendingOrder(15), 51)
+// console.log(descendingOrder(1021), 2110)
+
+
+
+
+// -------------------------------//
+// Write a function that returns the middle character of the word. If the word's length is odd, return the middle character. 
+// If the word's length is even, return the middle 2 characters.
+
+function getTheMiddle(str){
+ return str.length%2 === 0 ? `${str[(str.length/2)-1]}${str[str.length/2]}` : str[Math.floor(str.length/2)]
+}
+
+// console.log(getTheMiddle("test"),"es");
+// console.log(getTheMiddle("testing"),"t");
+// console.log(getTheMiddle("middle"),"dd");
+// console.log(getTheMiddle("A"),"A");
+
+
+
+
+// -------------------------------//
+//create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+function arrFilter(arr) {
+  return arr.filter(i => typeof(i) === 'number')
+}
+
+console.log(arrFilter([1,2,'a','b']))
+console.log(arrFilter([1,'a','b',0,15]))
+console.log(arrFilter([1,2,'aasf','1','123',123]))
