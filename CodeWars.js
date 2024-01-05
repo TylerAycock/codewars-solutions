@@ -1547,21 +1547,79 @@ function bmi(weight, height) {
 
 // What Javascript statement in place of "?" will make the result always be between 6 and 7? 
 
-const x = 2; 
+const x = 2;
 let y = 4;
 
-function update(arg) { 
-  return Math.random() + y * arg; 
-} 
-y = 2; y=3; 
+function update(arg) {
+  return Math.random() + y * arg;
+}
+y = 2; y = 3;
 
-const result = update(x); 
+const result = update(x);
 
 // console.log(result)
 
 
-function evenOrOdd(number) {
-  return number%2==0?"Even": "Odd"
- }
 
- console.log(evenOrOdd(2))
+// Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+function evenOrOdd(number) {
+  return number % 2 == 0 ? "Even" : "Odd"
+}
+
+//  console.log(evenOrOdd(2))
+
+// You get an array of numbers, return the sum of all of the positives ones.
+
+//my initial solution utilizes if statements filter and reduce functions which overcomplicates the problem
+
+function positiveSum(arr) {
+  let filtered = []
+  if (arr.length === 0) {
+    return arr.length
+  } else {
+    filtered = arr.filter(num => num >= 0)
+  }
+  if (filtered.length === 0) {
+    return 0
+  } else {
+    return filtered.reduce((acc, cur) => acc + cur)
+  }
+}
+
+//a much simpler solution 
+
+function positiveSum(arr) {
+  let total = 0
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      total += arr[i]
+    }
+  }
+  return total
+}
+
+// console.log(positiveSum([1, 2, 3, 4, 5]), 15)
+// console.log(positiveSum([1, -2, 3, 4, 5]), 13)
+// console.log(positiveSum([]), 0)
+// console.log(positiveSum([-1, -2, -3, -4, -5]), 0)
+
+
+
+// -------------------------------//
+
+//Return the number (count) of vowels in the given string.
+
+//initial response 
+function getCount(str) {
+  return str.split("").filter(letter => {
+    return letter === 'a' || letter === "e" || letter === "i" || letter === "o" || letter === "u"
+  }).length;
+}
+
+//simplified alternative 
+
+function getCount(str) {
+  return str.split('').filter(letter => "aeiou".includes(letter)).length
+}
+
+// console.log(getCount("abracadabra"), 5)
