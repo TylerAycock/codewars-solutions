@@ -1683,8 +1683,8 @@ function descendingOrder(n) {
 // Write a function that returns the middle character of the word. If the word's length is odd, return the middle character. 
 // If the word's length is even, return the middle 2 characters.
 
-function getTheMiddle(str){
- return str.length%2 === 0 ? `${str[(str.length/2)-1]}${str[str.length/2]}` : str[Math.floor(str.length/2)]
+function getTheMiddle(str) {
+  return str.length % 2 === 0 ? `${str[(str.length / 2) - 1]}${str[str.length / 2]}` : str[Math.floor(str.length / 2)]
 }
 
 // console.log(getTheMiddle("test"),"es");
@@ -1698,9 +1698,34 @@ function getTheMiddle(str){
 // -------------------------------//
 //create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
 function arrFilter(arr) {
-  return arr.filter(i => typeof(i) === 'number')
+  return arr.filter(i => typeof (i) === 'number')
 }
 
-console.log(arrFilter([1,2,'a','b']))
-console.log(arrFilter([1,'a','b',0,15]))
-console.log(arrFilter([1,2,'aasf','1','123',123]))
+// console.log(arrFilter([1,2,'a','b']))
+// console.log(arrFilter([1,'a','b',0,15]))
+// console.log(arrFilter([1,2,'aasf','1','123',123]))
+
+
+
+
+// -------------------------------//
+//Create a function that creates a string where each letter in the input string is repeated a certain number of times based on its position in the original string
+
+function accum(s) {
+  let arr = s.split("")
+  let multiply = []
+
+  for (let i = 0; i < arr.length; i++) {
+
+    let repeatedLetter = arr[i].toUpperCase()
+
+    for (let x = 1; x <= i; x++) {
+      repeatedLetter += arr[i].toLowerCase()
+    }
+    multiply.push(repeatedLetter)
+  }
+  return multiply.join("-")
+}
+console.log(accum("abcd"),"A-Bb-Ccc-Dddd")  
+console.log(accum("RqaEzty"), "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy")
+console.log(accum("cwAt") ,"C-Ww-Aaa-Tttt")
