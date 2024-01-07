@@ -1721,11 +1721,50 @@ function accum(s) {
 
     for (let x = 1; x <= i; x++) {
       repeatedLetter += arr[i].toLowerCase()
+
     }
     multiply.push(repeatedLetter)
   }
   return multiply.join("-")
 }
-console.log(accum("abcd"),"A-Bb-Ccc-Dddd")  
-console.log(accum("RqaEzty"), "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy")
-console.log(accum("cwAt") ,"C-Ww-Aaa-Tttt")
+// console.log(accum("abcd"), "A-Bb-Ccc-Dddd")
+// console.log(accum("RqaEzty"), "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy")
+// console.log(accum("cwAt") ,"C-Ww-Aaa-Tttt")
+
+
+
+// -------------------------------//
+// Create a function that given an integral number, determine if it's a square number:
+
+var isSquare = function (n) {
+  return Number.isInteger(Math.sqrt(n))
+}
+
+// console.log(isSquare(-1), false, "-1: Negative numbers cannot be square numbers");
+// console.log(isSquare(0), true, "0 is a square number (0 * 0)");
+// console.log(isSquare(34), false, "3 is not a square number");
+
+
+
+// -------------------------------//
+// Create a function to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+function XOXO(str) {
+  let x = 0
+  let o = 0
+  let arr = str.split("").map(letter => letter.toLowerCase())
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 'x') {
+      x++
+    } else if (arr[i] === "o") {
+      o++
+    }
+  }
+  return x === o
+}
+
+console.log(XOXO('xo'), true);
+console.log(XOXO("xxOo"), true);
+console.log(XOXO("xxxm"), false);
+console.log(XOXO("Oo"), false);
+console.log(XOXO("ooom"), false);
