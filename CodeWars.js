@@ -1763,8 +1763,22 @@ function XOXO(str) {
   return x === o
 }
 
-console.log(XOXO('xo'), true);
-console.log(XOXO("xxOo"), true);
-console.log(XOXO("xxxm"), false);
-console.log(XOXO("Oo"), false);
-console.log(XOXO("ooom"), false);
+// console.log(XOXO('xo'), true);
+// console.log(XOXO("xxOo"), true);
+// console.log(XOXO("xxxm"), false);
+// console.log(XOXO("Oo"), false);
+// console.log(XOXO("ooom"), false);
+
+
+
+
+// -------------------------------//
+//Create a function that transforms only the first letter of each word to uppercase
+
+var str = "HOW CAN MIRRORS BE REAL?"
+
+String.prototype.toJadenCase = function () {
+  return this.split(" ").map(word => `${word[0].toUpperCase()}` + `${word.slice(1).toLowerCase()}`).join(" ")
+};
+console.log(str.toJadenCase());
+
