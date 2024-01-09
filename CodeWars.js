@@ -1780,5 +1780,80 @@ var str = "HOW CAN MIRRORS BE REAL?"
 String.prototype.toJadenCase = function () {
   return this.split(" ").map(word => `${word[0].toUpperCase()}` + `${word.slice(1).toLowerCase()}`).join(" ")
 };
-console.log(str.toJadenCase());
+// console.log(str.toJadenCase());
 
+
+
+
+// -------------------------------//
+
+//given a string of words, return the length of the shortest word(s).String will never be empty and you do not need to account for different data types.
+
+//initial solution using for loop 
+function findShort(s) {
+  let arr = s.split(" ")
+  let shortest = arr[0]
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length < shortest.length) {
+      shortest = arr[i]
+    }
+  }
+  return shortest.length
+}
+
+
+//cleaner solution utilizing spread and mapping 
+function findShort(s) {
+  return Math.min(...s.split(" ").map(word => word.length))
+}
+
+
+// console.log(findShort("bitcoin take over the world maybe who knows perhaps"), 3);
+// console.log(findShort("turns out random test cases are easier than writing out basic ones"), 3);
+// console.log(findShort("Let's travel abroad shall we"), 2);
+
+
+
+
+// -------------------------------//
+
+// symbols "A" and "T" are complements of each other, as "C" and "G". Your function receives one side of the 
+// DNA (string, except for Haskell); you need to return the other complementary side.
+
+function dnaStrand(dna) {
+  return dna.split("").map(letter => {
+    if (letter === "A") {
+      return "T"
+    } else if (letter === "T") {
+      return "A"
+    } else if (letter === "C") {
+      return "G"
+    } else if (letter === "G") {
+      return "C"
+    }
+  }).join("")
+}
+
+// console.log(dnaStrand("AAAA"), "TTTT", "String AAAA is")
+// console.log(dnaStrand("ATTGC"), "TAACG", "String ATTGC is")
+// console.log(dnaStrand("GTAT"), "CATA", "String GTAT is")
+
+
+
+
+// -------------------------------//
+// Create a function that returns the sum of all the multiples of 3 or 5 below the number passed in.
+//Additionally, if the number is negative, return 0.
+//Note: If the number is a multiple of both 3 and 5, only count it once.
+
+
+function solution(n) {
+  let sum = 0
+  for (let i = 1; i < n; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i
+    }
+  }
+  return sum
+}
+console.log(solution(10)) //23
