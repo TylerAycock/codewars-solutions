@@ -1856,4 +1856,70 @@ function solution(n) {
   }
   return sum
 }
-console.log(solution(10)) //23
+// console.log(solution(10)) //23
+
+
+
+// -------------------------------//
+
+// Write a function that takes in a string of one or more words, and returns the same string, but with all words that have five or more letters reversed
+
+function spinWords(s) {
+  return s.split(" ").map(word => {
+    if (word.length >= 5) {
+      return word.split("").reverse().join("")
+    } else {
+      return word
+    }
+  }).join(" ")
+}
+
+
+// console.log(spinWords("Welcome"), "emocleW");
+// console.log(spinWords("Hey fellow warriors"), "Hey wollef sroirraw");
+// console.log(spinWords("This is a test"), "This is a test");
+
+
+
+
+
+// -------------------------------//
+// Given an array of integers, find the one that appears an odd number of times.
+
+//for loop solution
+
+// function findOdd(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let count = 0
+//     for (let x = 0; x < arr.length; x++) {
+//       if (arr[i] === arr[x]) {
+//         count++
+//       }
+//     }
+//     if (count % 2 !== 0) {
+//       return arr[i]
+//     }
+//   }
+// }
+
+
+//creating an object running a forEach and looping over the object solution 
+function findOdd(arr) {
+  let obj = {}
+  arr.forEach(num => {
+    if (obj[num]) {
+      obj[num]++
+    } else {
+      obj[num] = 1
+    }
+  })
+  for (num in obj) {
+    if (obj[num] % 2 !== 0) {
+      return +num
+    };
+  }
+}
+
+console.log(findOdd([7], 7))
+console.log(findOdd([1, 1, 2], 2))
+console.log(findOdd([0, 1, 0, 1, 0], 0))
