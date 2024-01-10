@@ -1884,24 +1884,23 @@ function spinWords(s) {
 
 
 // -------------------------------//
-// Given an array of integers, find the one that appears an odd number of times.
+// Given an array of integers, find the one that appears an odd number of times. Two solutions provided below
 
 //for loop solution
 
-// function findOdd(arr) {
-//   for (let i = 0; i < arr.length; i++) {
-//     let count = 0
-//     for (let x = 0; x < arr.length; x++) {
-//       if (arr[i] === arr[x]) {
-//         count++
-//       }
-//     }
-//     if (count % 2 !== 0) {
-//       return arr[i]
-//     }
-//   }
-// }
-
+function findOdd(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let count = 0
+    for (let x = 0; x < arr.length; x++) {
+      if (arr[i] === arr[x]) {
+        count++
+      }
+    }
+    if (count % 2 !== 0) {
+      return arr[i]
+    }
+  }
+}
 
 //creating an object running a forEach and looping over the object solution 
 function findOdd(arr) {
@@ -1920,6 +1919,60 @@ function findOdd(arr) {
   }
 }
 
-console.log(findOdd([7], 7))
-console.log(findOdd([1, 1, 2], 2))
-console.log(findOdd([0, 1, 0, 1, 0], 0))
+// console.log(findOdd([7], 7))
+// console.log(findOdd([1, 1, 2], 2))
+// console.log(findOdd([0, 1, 0, 1, 0], 0))
+
+
+
+
+// -------------------------------//
+// Create a function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+// examples: 
+// []                                -->  "no one likes this"
+// ["Peter"]                         -->  "Peter likes this"
+// ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+// ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+// ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+function likes(arr) {
+  const length = arr.length;
+
+  switch (length) {
+    case 0:
+      return "no one likes this";
+    case 1:
+      return `${arr[0]} likes this`;
+    case 2:
+      return `${arr[0]} and ${arr[1]} like this`;
+    case 3:
+      return `${arr[0]}, ${arr[1]} and ${arr[2]} like this`;
+    default:
+      return `${arr[0]}, ${arr[1]} and ${length - 2} others like this`;
+  }
+}
+
+// console.log(likes([]), 'no one likes this');
+// console.log(likes(['Peter']), 'Peter like this');
+// console.log(likes(['Jacob', 'Alex']), 'Jacob and Alex like this');
+// console.log(likes(['Max', 'John', 'Mark']), 'Max, John and Mark like this');
+// console.log(likes(['Alex', 'Jacob', 'Mark', 'Max']), 'Alex, Jacob and 2 others like this');
+
+
+
+
+
+
+// -------------------------------//
+// Given n, take the sum of the digits of n. If that value has more than one digit, 
+// continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+
+
+function digitalRoot(n) {
+  while (n >= 10) {
+    n = String(n).split("").map(n => +n).reduce((acc, cur) => acc + cur)
+  }
+  return n
+}
+// console.log(digitalRoot(16), 7)
+// console.log(digitalRoot(456), 6)
