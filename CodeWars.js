@@ -1976,3 +1976,44 @@ function digitalRoot(n) {
 }
 // console.log(digitalRoot(16), 7)
 // console.log(digitalRoot(456), 6)
+
+
+
+
+// -------------------------------//
+// Create a function, which subtracts one list from another and returns the result.
+// It should remove all values from list a, which are present in list b keeping their order.
+
+function arrayDiff(a, b) {
+  return a.filter(num => !b.includes(num))
+}
+
+// console.log(arrayDiff([1, 2], [1]), [2], "a was [1,2], b was [1]");
+
+
+
+// -------------------------------//
+// given an array (which will have a length of at least 3, but could be very large) containing integers. 
+// The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. 
+// Write a function that takes the array as an argument and returns this "outlier" N.
+
+function findOutlier(arr) {
+  let slice = arr.slice(0, 3)
+  let even = 0
+  let odd = 0
+  slice.forEach(num => {
+    num % 2 === 0 ? even++ : odd++
+  })
+  if (even > odd) {
+    arr.filter(num => num % 2 !== 0)
+  } else if (odd > even) {
+    arr.filter(num => num % 2 === 0)
+  }
+  return arr[0]
+}
+
+console.log(findOutlier([0, 1, 2]), 1)
+console.log(findOutlier([1, 2, 3]), 2)
+console.log(findOutlier([2, 6, 8, 10, 3]), 3)
+console.log(findOutlier([0, 0, 3, 0, 0]), 3)
+console.log(findOutlier([1, 1, 0, 1, 1]), 0)
