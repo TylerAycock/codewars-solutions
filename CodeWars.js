@@ -857,7 +857,7 @@ noSpace = str => {
 // "aA11" -> 2 # 'a' and '1'
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
-function duplicateCount(s) {
+function duplicateast(s) {
   let letters = {}
   let num = 0
 
@@ -876,10 +876,10 @@ function duplicateCount(s) {
   return num
 }
 
-// console.log(duplicateCount("abcde"))
-// console.log(duplicateCount("aabBcde"))
-// console.log(duplicateCount("aA11"))
-// console.log(duplicateCount("Indivisibility"))
+// console.log(duplicateast("abcde"))
+// console.log(duplicateast("aabBcde"))
+// console.log(duplicateast("aA11"))
+// console.log(duplicateast("Indivisibility"))
 
 
 // -------------------------------//
@@ -2005,15 +2005,34 @@ function findOutlier(arr) {
     num % 2 === 0 ? even++ : odd++
   })
   if (even > odd) {
-    arr.filter(num => num % 2 !== 0)
+    return arr.filter(num => num % 2 !== 0)[0]
   } else if (odd > even) {
-    arr.filter(num => num % 2 === 0)
+    return arr.filter(num => num % 2 === 0)[0]
   }
-  return arr[0]
 }
 
-console.log(findOutlier([0, 1, 2]), 1)
-console.log(findOutlier([1, 2, 3]), 2)
-console.log(findOutlier([2, 6, 8, 10, 3]), 3)
-console.log(findOutlier([0, 0, 3, 0, 0]), 3)
-console.log(findOutlier([1, 1, 0, 1, 1]), 0)
+// console.log(findOutlier([0, 1, 2]), 1)
+// console.log(findOutlier([1, 2, 3]), 2)
+// console.log(findOutlier([2, 6, 8, 10, 3]), 3)
+// console.log(findOutlier([0, 0, 3, 0, 0]), 3)
+// console.log(findOutlier([1, 1, 0, 1, 1]), 0)
+
+
+
+// -------------------------------//
+
+function isValidWalk(walk) {
+  if (walk.length !== 10) {
+    return false
+  }
+  let north = walk.filter(letter => letter === "n").length
+  let south = walk.filter(letter => letter === "s").length
+  let east = walk.filter(letter => letter === "e").length
+  let west = walk.filter(letter => letter === "w").length
+  return north === south && west === east
+}
+
+console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's']), 'should return true');
+console.log(isValidWalk(['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e']), 'should return false');
+console.log(isValidWalk(['w']), 'should return false');
+console.log(isValidWalk(['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's']), 'should return false');
