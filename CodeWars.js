@@ -887,7 +887,7 @@ function duplicateast(s) {
 // if that character appears only once in the original string, or ")" if that character appears more than once in the original string. 
 // Ignore capitalization when determining if a character is a duplicate.
 
-function duplicateEncode(s) {
+function isDuplicate(s) {
   obj = {}
   let arr = s.toLowerCase().split('')
 
@@ -913,9 +913,9 @@ function duplicateEncode(s) {
 }
 
 
-// console.log(duplicateEncode("din"))
-// console.log(duplicateEncode("recede"))
-// console.log(duplicateEncode("Success"))
+// console.log(isDuplicate("din"))
+// console.log(isDuplicate("recede"))
+// console.log(isDuplicate("Success"))
 
 
 
@@ -2021,6 +2021,10 @@ function findOutlier(arr) {
 
 // -------------------------------//
 
+// Create a function that checks if the array of directions will send you on an exactly 10 minute walk and return you to your original locaiton.
+//Each direction will take you exactly 1 minute to walk that block.
+
+
 function isValidWalk(walk) {
   if (walk.length !== 10) {
     return false
@@ -2032,7 +2036,57 @@ function isValidWalk(walk) {
   return north === south && west === east
 }
 
-console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's']), 'should return true');
-console.log(isValidWalk(['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e']), 'should return false');
-console.log(isValidWalk(['w']), 'should return false');
-console.log(isValidWalk(['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's']), 'should return false');
+// console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's']), 'should return true');
+// console.log(isValidWalk(['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e']), 'should return false');
+// console.log(isValidWalk(['w']), 'should return false');
+// console.log(isValidWalk(['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's']), 'should return false');
+
+
+
+// -------------------------------//
+// Create a function that  convert a string to a new string where each character in the new string is "(" 
+// if that character appears only once in the original string, or ")" if that character appears more than once in the original string.
+//  Ignore capitalization when determining if a character is a duplicate.
+
+
+//initial solution creating an obj and mapping over the arr to see how many times a letter appears
+function isDuplicate(s) {
+  let obj = {}
+  let arr = s.split("").map(letter => letter.toLowerCase())
+
+  arr.forEach(l => {
+    if (obj[l]) {
+      obj[l]++
+    } else {
+      obj[l] = 1
+    }
+  })
+  return arr.map(letter => {
+    if (obj[letter] <= 1) {
+      return "("
+    } else {
+      return ")"
+    }
+  }).join("")
+}
+
+//for loop solution that utilizes the lastIndexOf and indexOf string methods to find duplcates and adds those to a new string var
+function isDuplicate(word) {
+  var unique = '';
+  word = word.toLowerCase();
+  for (var i = 0; i < word.length; i++) {
+    if (word.lastIndexOf(word[i]) == word.indexOf(word[i])) {
+      unique += '(';
+    }
+    else {
+      unique += ')';
+    }
+  }
+  return unique;
+}
+
+
+// console.log(isDuplicate("din"), "(((");
+// console.log(isDuplicate("recede"), "()()()");
+// console.log(isDuplicate("Success"), ")())())", "should ignore case");
+// console.log(isDuplicate("(( @"), "))((");
