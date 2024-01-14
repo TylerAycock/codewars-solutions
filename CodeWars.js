@@ -945,7 +945,7 @@ function findOutlier(arr) {
 // -------------------------------//
 // given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it.
 
-function alphabetPosition(s) {
+function alphabetIndex(s) {
   let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
   return s.toLowerCase().split('').map(letter => {
     let num = (alphabet.indexOf(letter))
@@ -953,8 +953,8 @@ function alphabetPosition(s) {
   }).filter(num => num !== 0).join(' ')
 }
 
-// console.log(alphabetPosition("The sunset sets at twelve o' clock."))
-// console.log(alphabetPosition("The narwhal bacons at midnight."))
+// console.log(alphabetIndex("The sunset sets at twelve o' clock."))
+// console.log(alphabetIndex("The narwhal bacons at midnight."))
 
 
 
@@ -2090,3 +2090,22 @@ function isDuplicate(word) {
 // console.log(isDuplicate("recede"), "()()()");
 // console.log(isDuplicate("Success"), ")())())", "should ignore case");
 // console.log(isDuplicate("(( @"), "))((");
+
+
+//Creatae a function that given a string, replaces every letter with its position in the alphabet.
+// If anything in the text isn't a letter, ignore it and don't return it.
+
+function alphabetIndex(s) {
+  let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+  let regex = /^[a-zA-Z]+$/
+
+  return s.split("").filter(letter => regex.test(letter)).map(letter => letter.toLowerCase()).map(letter => {
+    if (alphabet.includes(letter)) {
+      return (alphabet.indexOf(letter)) + 1
+    }
+  }).join(" ")
+}
+
+// console.log(alphabetIndex('Hello world!'))
+console.log(alphabetIndex("The sunset sets at twelve o' clock.")); //, "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+// console.log(alphabetIndex("The narwhal bacons at midnight."), "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20");
