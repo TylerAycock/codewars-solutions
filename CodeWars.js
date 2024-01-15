@@ -2092,7 +2092,11 @@ function isDuplicate(word) {
 // console.log(isDuplicate("(( @"), "))((");
 
 
-//Creatae a function that given a string, replaces every letter with its position in the alphabet.
+
+
+// -------------------------------//
+
+//Create a function that given a string, replaces every letter with its position in the alphabet.
 // If anything in the text isn't a letter, ignore it and don't return it.
 
 function alphabetIndex(s) {
@@ -2106,6 +2110,43 @@ function alphabetIndex(s) {
   }).join(" ")
 }
 
-// console.log(alphabetIndex('Hello world!'))
-console.log(alphabetIndex("The sunset sets at twelve o' clock.")); //, "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+// console.log(alphabetIndex("The sunset sets at twelve o' clock.")); //, "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
 // console.log(alphabetIndex("The narwhal bacons at midnight."), "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20");
+
+
+
+
+// -------------------------------//
+// Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, 
+// which is the number of times you must multiply the digits in num until you reach a single digit. Return the number of splits
+
+function persistence(num) {
+  let count = 0
+  while (num >= 10) {
+    count++
+    num = num.toString().split("").map(num => +num).reduce((acc, cur) => acc * cur)
+  }
+  return count
+}
+
+// console.log(persistence(39), 3);
+// console.log(persistence(4), 0);
+// console.log(persistence(25), 2);
+// console.log(persistence(999), 4);
+
+
+
+
+// -------------------------------//
+// create a function that converts dash/underscore delimited words into camel casing
+
+function toCamelCase(str) {
+  return str.replace(/[_ -]/g, " ").split(" ").map((word, index) => {
+    return index === 0 ? word : `${word[0].toUpperCase()}${word.slice(1)}`
+  }).join("")
+}
+
+console.log(toCamelCase('')) // " "
+console.log(toCamelCase("the_stealth_warrior")) //"theStealthWarrior"
+console.log(toCamelCase("The-Stealth-Warrior")) //"TheStealthWarrior"
+console.log(toCamelCase("A-B-C")) //"ABC"
