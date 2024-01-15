@@ -2150,3 +2150,21 @@ console.log(toCamelCase('')) // " "
 console.log(toCamelCase("the_stealth_warrior")) //"theStealthWarrior"
 console.log(toCamelCase("The-Stealth-Warrior")) //"TheStealthWarrior"
 console.log(toCamelCase("A-B-C")) //"ABC"
+
+
+
+
+// Create a function that takes in a string. Each word in the string contains a number. The function should print on the string with the words in numerical order. 
+//Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+function order(words) {
+  return words.split(" ").map(word => {
+    let order = word.split("").filter(Number)
+    return `${order}${word}`
+  }).sort().map(word => word.slice(1)).join(" ")
+}
+
+
+console.log(order("is2 Thi1s T4est 3a"), "Thi1s is2 3a T4est")
+console.log(order("4of Fo1r pe6ople g3ood th5e the2"), "Fo1r the2 g3ood 4of th5e pe6ople")
+console.log(order(""), "", "empty input should return empty string")
