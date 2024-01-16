@@ -2146,13 +2146,15 @@ function toCamelCase(str) {
   }).join("")
 }
 
-console.log(toCamelCase('')) // " "
-console.log(toCamelCase("the_stealth_warrior")) //"theStealthWarrior"
-console.log(toCamelCase("The-Stealth-Warrior")) //"TheStealthWarrior"
-console.log(toCamelCase("A-B-C")) //"ABC"
+// console.log(toCamelCase('')) // " "
+// console.log(toCamelCase("the_stealth_warrior")) //"theStealthWarrior"
+// console.log(toCamelCase("The-Stealth-Warrior")) //"TheStealthWarrior"
+// console.log(toCamelCase("A-B-C")) //"ABC"
 
 
 
+
+// -------------------------------/
 
 // Create a function that takes in a string. Each word in the string contains a number. The function should print on the string with the words in numerical order. 
 //Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
@@ -2165,6 +2167,41 @@ function order(words) {
 }
 
 
-console.log(order("is2 Thi1s T4est 3a"), "Thi1s is2 3a T4est")
-console.log(order("4of Fo1r pe6ople g3ood th5e the2"), "Fo1r the2 g3ood 4of th5e pe6ople")
-console.log(order(""), "", "empty input should return empty string")
+// console.log(order("is2 Thi1s T4est 3a"), "Thi1s is2 3a T4est")
+// console.log(order("4of Fo1r pe6ople g3ood th5e the2"), "Fo1r the2 g3ood 4of th5e pe6ople")
+// console.log(order(""), "", "empty input should return empty string")
+
+
+
+// -------------------------------/
+
+//Create a function that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+
+function moveZero(arr) {
+  let filtered = arr.filter(num => num !== 0)
+  let zeros = arr.filter(num => num === 0)
+  return filtered.concat(zeros)
+}
+
+// console.log(moveZero([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])) // [1, 2, 1, 1, 3, 1, 0, 0, 0, 0];
+
+
+
+function to24hourtime(hour, minute, period) {
+  if (period === "pm" && hour !== 12) {
+    hour += 12
+  } else if (period === "am" && hour === 12) {
+    hour = 0
+  }
+
+  let formattedHour = hour.toString().padStart(2, 0)
+  let formattedMinute = minute.toString().padStart(2, 0)
+
+  return formattedHour + formattedMinute
+}
+
+// console.log(to24hourtime(1, 0, "am"), "0100", "Input =  1:00 am");
+// console.log(to24hourtime(1, 0, "pm"), "1300", "Input =  1:00 pm");
+// console.log(to24hourtime(12, 0, "am"), "0000", "Input = 12:00 am");
+// console.log(to24hourtime(12, 0, "pm"), "1200", "Input = 12:00 pm");
+
