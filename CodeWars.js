@@ -2187,6 +2187,10 @@ function moveZero(arr) {
 
 
 
+
+// -------------------------------/
+// Create a function that transforms the given input into military time 
+
 function to24hourtime(hour, minute, period) {
   if (period === "pm" && hour !== 12) {
     hour += 12
@@ -2204,4 +2208,42 @@ function to24hourtime(hour, minute, period) {
 // console.log(to24hourtime(1, 0, "pm"), "1300", "Input =  1:00 pm");
 // console.log(to24hourtime(12, 0, "am"), "0000", "Input = 12:00 am");
 // console.log(to24hourtime(12, 0, "pm"), "1200", "Input = 12:00 pm");
+
+
+
+// -------------------------------/
+// Create a function that returns a boolean for if a number which is the sum of its own digits, each raised to the power of the number of digits in a given base.
+// ex of true ===    1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+
+function sumOfSquare(n) {
+  let s = n.toString().split("")
+  return s.map(num => Math.pow(+num, s.length)).reduce((acc, cur) => acc + cur) === n
+}
+
+// console.log(sumOfSquare(153))//true
+// console.log(sumOfSquare(122))//false 
+
+
+
+
+// -------------------------------/
+// Create a function that given an array of numbers will sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+
+function sortMyArray(array) {
+  let odd = array.filter(num => num % 2 == 1 || num%2 === -1).sort((a, b) => a - b)
+
+  return array.map(num => {
+    if (num % 2 === 1 || num%2 === -1) {
+      let order = odd.shift(1)
+      return num = order
+    } else {
+      return num
+    }
+  })
+
+}
+
+// console.log(sortMyArray([1, 11, 2, 8, 3, 4, 5])) //[ 1, 3, 2, 8, 5, 4, 11 ]
+// console.log(sortMyArray([-30, 7, 20, -42, -46, -12, -49, 14, 11, 15, 19, -6, -17, -50, -35, -27, -15, 27, 31, 36, 50, 38, -27, 45]))
+//  [ -30, -49, 20, -42, -46, -12, -35, 14, -27, -27, -17, -6, -15, -50, 7, 11, 15, 19, 27, 36, 50, 38, 31, 45 ]
 
