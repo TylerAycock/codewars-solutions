@@ -2230,10 +2230,10 @@ function sumOfSquare(n) {
 // Create a function that given an array of numbers will sort the odd numbers in ascending order while leaving the even numbers at their original positions.
 
 function sortMyArray(array) {
-  let odd = array.filter(num => num % 2 == 1 || num%2 === -1).sort((a, b) => a - b)
+  let odd = array.filter(num => num % 2 == 1 || num % 2 === -1).sort((a, b) => a - b)
 
   return array.map(num => {
-    if (num % 2 === 1 || num%2 === -1) {
+    if (num % 2 === 1 || num % 2 === -1) {
       let order = odd.shift(1)
       return num = order
     } else {
@@ -2247,3 +2247,48 @@ function sortMyArray(array) {
 // console.log(sortMyArray([-30, 7, 20, -42, -46, -12, -49, 14, 11, 15, 19, -6, -17, -50, -35, -27, -15, 27, 31, 36, 50, 38, -27, 45]))
 //  [ -30, -49, 20, -42, -46, -12, -35, 14, -27, -27, -17, -6, -15, -50, 7, 11, 15, 19, 27, 36, 50, 38, 31, 45 ]
 
+
+
+
+// -------------------------------/
+
+// Create a function that  builds a pyramid-shaped tower, as an array/list of strings, given a positive integer number of floors.
+//  A tower block is represented with "*" character.
+
+function towerBuilder(nFloors) {
+  let tower = []
+  for (let i = 0; i < nFloors; i++) {
+    let spaces = " ".repeat(nFloors - i - 1)
+    let stars = "*".repeat(2 * i + 1)
+    tower.push(spaces + stars + spaces)
+  }
+  return tower
+}
+
+// console.log(towerBuilder(1), ["*"]);
+// console.log(towerBuilder(2), [" * ", "***"]);
+// console.log(towerBuilder(3), ["  *  ", " *** ", "*****"]);
+
+
+
+
+// -------------------------------/
+// Create a fucntion that given a string of words, finds the highest scoring word.
+// Each letter of a word scores points according to its position in the alphabet:
+
+function high(s) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split("")
+  let words = s.split(" ")
+  let numbers = s.split(" ").map(word => {
+    let count = 0
+    for (let i = 0; i < word.length; i++) {
+      count += alphabet.indexOf(word[i]) + 1
+    }
+    return count
+  })
+  return words[numbers.indexOf(Math.max(...numbers))]
+}
+
+console.log(high('man i need a taxi up to ubud'), 'taxi');
+console.log(high('what time are we climbing up the volcano'), 'volcano'); 
+console.log(high('take me to semynak'), 'semynak');   
