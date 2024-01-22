@@ -2289,6 +2289,30 @@ function high(s) {
   return words[numbers.indexOf(Math.max(...numbers))]
 }
 
-console.log(high('man i need a taxi up to ubud'), 'taxi');
-console.log(high('what time are we climbing up the volcano'), 'volcano'); 
-console.log(high('take me to semynak'), 'semynak');   
+// console.log(high('man i need a taxi up to ubud'), 'taxi');
+// console.log(high('what time are we climbing up the volcano'), 'volcano');
+// console.log(high('take me to semynak'), 'semynak');
+
+
+
+
+
+
+// -------------------------------/
+
+// Write a function that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+
+function missingLetter(arr) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split("")
+
+  for (let i = 0; i < arr.length; i++) {
+    if (`${alphabet[alphabet.indexOf(arr[i])]},${alphabet[alphabet.indexOf(arr[i]) + 1]}` !== `${arr[i]},${arr[i + 1]}`) {
+      return alphabet[alphabet.indexOf(arr[i]) + 1]
+    }
+  }
+
+}
+
+
+console.log(missingLetter(['a', 'b', 'c', 'd', 'f']), 'e');
+// console.log(missingLetter(['O', 'Q', 'R', 'S']), 'P');
