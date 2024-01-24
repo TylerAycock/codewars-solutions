@@ -2303,16 +2303,64 @@ function high(s) {
 // Write a function that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
 
 function missingLetter(arr) {
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split("")
+  let letters = arr.map(letter => letter.toLowerCase())
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split("")
+  let missingLetter = ""
 
-  for (let i = 0; i < arr.length; i++) {
-    if (`${alphabet[alphabet.indexOf(arr[i])]},${alphabet[alphabet.indexOf(arr[i]) + 1]}` !== `${arr[i]},${arr[i + 1]}`) {
-      return alphabet[alphabet.indexOf(arr[i]) + 1]
+  for (let i = 0; i < letters.length; i++) {
+    let currentLetterIndex = alphabet.indexOf(letters[i])
+
+    if (currentLetterIndex !== -1 && alphabet[currentLetterIndex + 1]) {
+      missingLetter = alphabet[currentLetterIndex + 1]
     }
+    if (arr[i] === arr[i].toUpperCase()) {
+      missingLetter = missingLetter.toUpperCase()
+    }
+    return missingLetter
   }
-
 }
 
 
-console.log(missingLetter(['a', 'b', 'c', 'd', 'f']), 'e');
+// console.log(missingLetter(['a', 'b', 'c', 'd', 'f']), 'e');
 // console.log(missingLetter(['O', 'Q', 'R', 'S']), 'P');
+
+
+
+
+// -------------------------------/ 
+// Create a function that given a list and a number, create a new list that contains each number of list at most N times, without reordering.
+// ex: if n = 2 and arr = [1,2,3,1,2,1,2,3] output would be [1,2,3,1,2,3]
+
+// function deleteNth(arr, n) {
+//   let answer = []
+//   let obj = {}
+//   arr.forEach(num => {
+//     if (!obj[num]) {
+//       obj[num] = 1
+//     } else {
+//       obj[num]++
+//     }
+//   })
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     if (obj[arr[i]] > n) {
+//       obj[arr[i]]--
+//     } else {
+//       answer.unshift(arr[i])
+//     }
+//   }
+//   return answer
+// }
+
+// cleaner answer 
+
+// function deleteNth(arr,x) {
+//   var cache = {};
+//   return arr.filter(num=>{
+//     cache[num] = (cache[num]||0) + 1;
+//     return cache[num] <= x;
+//   });
+// }
+
+
+// console.log(deleteNth([20, 37, 20, 21], 1)) //[20, 37, 21]
+// console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3)) //[1, 1, 3, 3, 7, 2, 2, 2]
