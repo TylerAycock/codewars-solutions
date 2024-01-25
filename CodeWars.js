@@ -2331,36 +2331,65 @@ function missingLetter(arr) {
 // Create a function that given a list and a number, create a new list that contains each number of list at most N times, without reordering.
 // ex: if n = 2 and arr = [1,2,3,1,2,1,2,3] output would be [1,2,3,1,2,3]
 
-// function deleteNth(arr, n) {
-//   let answer = []
-//   let obj = {}
-//   arr.forEach(num => {
-//     if (!obj[num]) {
-//       obj[num] = 1
-//     } else {
-//       obj[num]++
-//     }
-//   })
-//   for (let i = arr.length - 1; i >= 0; i--) {
-//     if (obj[arr[i]] > n) {
-//       obj[arr[i]]--
-//     } else {
-//       answer.unshift(arr[i])
-//     }
-//   }
-//   return answer
-// }
+function deleteNth(arr, n) {
+  let answer = []
+  let obj = {}
+  arr.forEach(num => {
+    if (!obj[num]) {
+      obj[num] = 1
+    } else {
+      obj[num]++
+    }
+  })
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (obj[arr[i]] > n) {
+      obj[arr[i]]--
+    } else {
+      answer.unshift(arr[i])
+    }
+  }
+  return answer
+}
 
 // cleaner answer 
 
-// function deleteNth(arr,x) {
-//   var cache = {};
-//   return arr.filter(num=>{
-//     cache[num] = (cache[num]||0) + 1;
-//     return cache[num] <= x;
-//   });
-// }
+function deleteNth(arr, x) {
+  var cache = {};
+  return arr.filter(num => {
+    cache[num] = (cache[num] || 0) + 1;
+    return cache[num] <= x;
+  });
+}
 
 
 // console.log(deleteNth([20, 37, 20, 21], 1)) //[20, 37, 21]
 // console.log(deleteNth([1, 1, 3, 3, 7, 2, 2, 2, 2], 3)) //[1, 1, 3, 3, 7, 2, 2, 2]
+
+
+
+
+// -------------------------------/ 
+// Given an array (arr) as an argument create a function that should return the total number of smiling faces.
+
+// Rules for a smiling face:
+//  - Each smiley face must contain a valid pair of eyes. Eyes can be marked as ":" or ";"
+//  - A smiley face can have a nose but it does not have to. Valid characters for a nose are "-" or '~'
+//  - Every smiling face must have a smiling mouth that should be marked with either ')' or 'D'
+
+// : ; - ~ ) D
+
+
+function countSmileys(arr) {
+  let count = 0
+  let pattern = /^[:;][-~]?[)D]/
+
+  arr.forEach(face => {
+    pattern.test(face) && count++
+  })
+  return count
+}
+
+// console.log(countSmileys([]), 0);
+console.log(countSmileys([':D', ':~)', ';~D', ':)']), 4);
+console.log(countSmileys([':)', ':(', ':D', ':O', ':;']), 2);
+console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']), 1);
