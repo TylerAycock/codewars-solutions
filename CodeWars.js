@@ -2376,8 +2376,6 @@ function deleteNth(arr, x) {
 //  - A smiley face can have a nose but it does not have to. Valid characters for a nose are "-" or '~'
 //  - Every smiling face must have a smiling mouth that should be marked with either ')' or 'D'
 
-// : ; - ~ ) D
-
 
 function countSmileys(arr) {
   let count = 0
@@ -2390,6 +2388,53 @@ function countSmileys(arr) {
 }
 
 // console.log(countSmileys([]), 0);
-console.log(countSmileys([':D', ':~)', ';~D', ':)']), 4);
-console.log(countSmileys([':)', ':(', ':D', ':O', ':;']), 2);
-console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']), 1);
+// console.log(countSmileys([':D', ':~)', ';~D', ':)']), 4);
+// console.log(countSmileys([':)', ':(', ':D', ':O', ':;']), 2);
+// console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']), 1);
+
+
+
+// -------------------------------/ 
+// Create a function that breaks up camel casing, using a space between words
+
+function solution(string) {
+  return string.split("").map(letter => letter === letter.toUpperCase() ? " " + letter : letter).join("")
+}
+
+
+// console.log(solution(""), "");
+// console.log(solution("camelCasing"), "camel Casing");
+// console.log(solution("camelCasingTest"), "camel Casing Test");
+
+
+
+
+//NEED TO FIX THIS PROBLEM
+// -------------------------------/ 
+// You are given an array(list) strarr of strings and an integer k. 
+// Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+
+function longestConsec(strarr, k) {
+  let longest = 0
+  for (let i = 0; i < strarr.length; i++) {
+    let slice = strarr.slice(strarr[i], k)
+    console.log(slice)
+  }
+  return longest
+}
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
+// console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
+// console.log(longestConsec([], 3), "")
+
+
+
+// -------------------------------/ 
+
+// Craete a function that counts all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+
+function count(string) {
+  let count = {}
+  let arr = string.split("")
+  arr.forEach(letter => count[letter] ? count[letter]++ : count[letter] = 1)
+  return count
+}
