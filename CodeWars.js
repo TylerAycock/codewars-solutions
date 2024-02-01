@@ -2408,19 +2408,23 @@ function solution(string) {
 
 
 
-
-//NEED TO FIX THIS PROBLEM
 // -------------------------------/ 
 // You are given an array(list) strarr of strings and an integer k. 
 // Your task is to return the first longest string consisting of k consecutive strings taken in the array.
 
 function longestConsec(strarr, k) {
   let longest = 0
+  let string = ""
   for (let i = 0; i < strarr.length; i++) {
-    let slice = strarr.slice(strarr[i], k)
-    console.log(slice)
+    let slice = strarr.slice(i, i + k).join("")
+    let curlength = slice.length
+
+    if (curlength > longest) {
+      longest = curlength
+      string = slice
+    }
   }
-  return longest
+  return string
 }
 console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), "abigailtheta")
 // console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1), "oocccffuucccjjjkkkjyyyeehh")
@@ -2438,3 +2442,4 @@ function count(string) {
   arr.forEach(letter => count[letter] ? count[letter]++ : count[letter] = 1)
   return count
 }
+
